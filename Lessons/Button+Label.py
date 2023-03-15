@@ -22,7 +22,6 @@ root.geometry('300x300')
 my_label = ttk.Label(root, text=counter, bootstyle='vapor')
 my_label.pack(pady=30)
 
-#Doh Label Create
 doh_label = ttk.Label(root, text="Dohuya", bootstyle='vapor')
 
 # Create Button
