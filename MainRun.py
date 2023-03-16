@@ -3,29 +3,45 @@
 # Date: 15.03.2023
 
 import tkinter as tk
-import ttkbootstrap as ttk
+import ttkbootstrap as tkb
 from ttkbootstrap.constants import *
 
-counter = 0
-def count():
-    global counter
-    counter += 1
-    my_label.config(text=counter)
-    if counter >= 10:
-        doh_label.pack()
+# Main Settings
+window = tkb.Window(themename='vapor')
+window.geometry('400x300')
+window.resizable(False, False)
 
-# Main Setting
-root = ttk.Window(themename='vapor')
-root.geometry('300x300')
+# --- OPEN Functions ---
+def checker():
+    if check_var.get() == True or tool_cheker.get() == True:
+        hello_label.config(text='GoodBye Alex!', bootstyle='danger')
+    else:
+        hello_label.config(text='Hello Alex!', bootstyle='vapor')
+# --- CLOSE Functions ---
 
-# Create Label
-my_label = ttk.Label(root, text=counter, bootstyle='vapor')
-my_label.pack(pady=30)
+# --- OPEN Labels ---
+# Create Hello Label
+hello_label = tkb.Label(window, text="Hello Alex!", font=('Gotham', 12))
+hello_label.pack(anchor=NW, padx=10, pady=10)
+# --- CLOSE Labels ---
 
-#Doh Label Create
-doh_label = ttk.Label(root, text="Dohuya", bootstyle='vapor')
+# --- OPEN Check Buttons ---
+# First Check Button
+check_var = tkb.IntVar()
+label_changer = tkb.Checkbutton(text='Click me!', variable=check_var,
+                                onvalue=True, offvalue=False,
+                                command=checker, bootstyle='danger-round-toggle')
+label_changer.pack(anchor=NW, padx=10, pady=10)
+# --- CLOSE Check Buttons ---
 
-# Create Button
-my_button = ttk.Button(root, text='plus', bootstyle='vapor', command=count)
-my_button.pack(pady=20)
-root.mainloop()
+# --- OPEN Tool Buttons ---
+tool_cheker = tkb.IntVar()
+first_tool_button = tkb.Checkbutton(text='Tool1', variable=tool_cheker,
+                                onvalue=True, offvalue=False,
+                                command=checker, bootstyle='danger-square-toggle')
+first_tool_button.pack()
+
+# --- CLOSE Tool Buttons ---
+
+# Execute
+window.mainloop()
