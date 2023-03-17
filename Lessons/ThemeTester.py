@@ -10,7 +10,7 @@ print(my_theme)
 print(my_win.style.colors)
 my_str = ttk.StringVar(value=my_win.style.theme_use())
 
-r,c = 0, 0
+r, c = 0, 0
 def my_update():
     my_win.style.theme_use(my_str.get())
     pass
