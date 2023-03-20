@@ -20,7 +20,6 @@ def run():
         add_element_button.configure(state='enabled')
         my_combo.configure(state='enabled')
 
-
 def check_add_element_button(): # Функция для условия включения, выключения кнопки
     if len(name_list) >= 6:
         add_element_button.configure(state='disabled')
