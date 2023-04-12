@@ -18,7 +18,7 @@ def timer():
 
 my_meter = tkb.Meter(window,
                      subtext='Timer',
-                     interactive=False,
+                     interactive=True,
                      bootstyle='danger',
                      stripethickness=6,
                      textright='sec',
