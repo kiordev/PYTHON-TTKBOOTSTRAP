@@ -10,8 +10,8 @@ test_label = tkb.Label(main_window, text="Сборник тестов: ", font=(
 test_label.pack(padx=60, pady=10, anchor='nw')
 
 # Test Frame
-tests_frame = ScrolledFrame(main_window, bootstyle='darkly', height=150, width=200)
-tests_frame.pack(anchor='nw', pady=10, padx=10)
+tests_frame = ScrolledFrame(main_window, bootstyle='darkly', height=150, width=300)
+tests_frame.pack(anchor='nw', pady=0, padx=10)
 
 list = ["Some1", "Some2", "Some3", 'Some4', 'Some5', 'Some6', 'Some7', 'Some8', 'Some9']
 
@@ -19,7 +19,7 @@ list = ["Some1", "Some2", "Some3", 'Some4', 'Some5', 'Some6', 'Some7', 'Some8', 
 r, c = 0, 0
 for i in range(0, len(list)):
     c += 1
-    tkb.Button(tests_frame, text=list[i], bootstyle='danger-outline').grid(row=r, column=c, padx=10, pady=10)
+    tkb.Button(tests_frame, text=list[i], bootstyle='danger-outline', width=10).grid(row=r, column=c, padx=10, pady=10)
     if c >= 2:
         r, c = r+1, 0
 
