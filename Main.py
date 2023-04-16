@@ -13,18 +13,9 @@ window.columnconfigure(0, weight=0)
 window.columnconfigure(1, weight=1)
 
 # Функция для работы логина/пароля
-def accept_data():
-    if login_entry.get() == 'sasha' and password_entry.get() == 'kior':
-        accept_button.config(bootstyle='succes-outline')
-        password_entry.config(bootstyle='succes')
-        login_entry.config(bootstyle='succes')
-    else:
-        accept_button.config(bootstyle='danger-outline')
-        password_entry.config(bootstyle='danger')
-        login_entry.config(bootstyle='danger')
-
-def accept_theme():
-    window.style.theme_use(themename=my_theme[theme_combobox.current()])
+def counter():
+    counter = num.get()
+    num.set(counter+1)
 
 # Side_Frame
 side_frame = tkb.Frame(window, bootstyle='dark')
@@ -34,36 +25,31 @@ menu_label = tkb.Label(side_frame, text="Menu", font=("Gotham-bold", 20), bootst
 menu_label.pack(padx=10, pady=10)
 
 list_menu = ["NEW GAME", "LOAD GAME", "OPTIONS", "CREDITS", "EXIT"]
-i = 0
-for i in range(0, 5):
-    tkb.Button(side_frame, text=list_menu[i], bootstyle="primary-outline", width=25).pack(pady=20, padx=10)
-    i += 1
 
-# Change Theme
-my_theme = window.style.theme_names()
-my_str = tkb.StringVar(value=window.style.theme_use())
-theme_combobox = tkb.Combobox(side_frame, values=my_theme)
-theme_combobox.pack(pady=20, padx=10)
-accept_theme_button = tkb.Button(side_frame, bootstyle='info-outline', text='ACCEPT THEME', command=accept_theme)
-accept_theme_button.pack(pady=20, padx=10)
+new_game_button = tkb.Button(side_frame, text="NEW GAME", bootstyle="primary-outline", command=lambda: main_frame.tkraise(), width=25)
+new_game_button.pack(pady=20, padx=10)
+load_game_button = tkb.Button(side_frame, text="LOAD GAME", bootstyle="primary-outline", command=lambda: Load_frame.tkraise(), width=25)
+load_game_button.pack(pady=20, padx=10)
 
-# Main_Frame
+num = tkb.IntVar()
+
+# NewGame_Frame
 main_frame = tkb.Frame(window, bootstyle='primary')
 main_frame.grid(row=0, column=1, sticky="nsew")
+newgame_label = tkb.Label(main_frame, text="New game", font=("Gotham-bold", 20), bootstyle='inverse-dark')
+newgame_label.pack(padx=10, pady=10)
+test_game_button = tkb.Button(main_frame, textvariable=num, bootstyle='dark', command=counter)
+test_game_button.pack()
 
-login_label = tkb.Label(main_frame, text="Login: ", bootstyle='inverse-primary', font=("Gotham-bold", 10))
-login_label.grid(row=1, column=1, stick='W', pady=20, padx=30)
+# LoadGame_Frame
+Load_frame = tkb.Frame(window, bootstyle='primary')
+Load_frame.grid(row=0, column=1, sticky="nsew")
+load_label = tkb.Label(Load_frame, text="Load Game", font=("Gotham-bold", 20), bootstyle='inverse-dark')
+load_label.pack(padx=10, pady=10)
 
-login_entry = tkb.Entry(main_frame)
-login_entry.grid(row=1, column=2, padx=25)
+load_game_button = tkb.Button(Load_frame, textvariable=num, bootstyle='danger', command=counter)
+load_game_button.pack()
 
-password_label = tkb.Label(main_frame, text="Password: ", bootstyle='inverse-primary', font=("Gotham-bold", 10))
-password_label.grid(row=2, column=1, stick='W', pady=10, padx=30)
-
-password_entry = tkb.Entry(main_frame)
-password_entry.grid(row=2, column=2, padx=25)
-
-accept_button = tkb.Button(main_frame, bootstyle='info-outline', text='Accept', command=accept_data)
-accept_button.grid(row=3, column=2, pady=25)
+main_frame.tkraise()
 
 window.mainloop()
