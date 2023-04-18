@@ -16,7 +16,7 @@ theme_combobox.pack(pady=20, padx=10)
 accept_theme_button = tkb.Button(window, bootstyle='info-outline', text='ACCEPT THEME', command=accept_theme)
 accept_theme_button.pack(pady=20, padx=10)
 
-style_list = ["primary", "secondary", "success", "info", "warning", "danger", "light", "dark"]
+style_list = ["primary", "secondaryy", "success", "info", "warning", "danger", "light", "dark"]
 i = 0
 for i, word in enumerate(style_list):
     tkb.Button(text=style_list[i], bootstyle=style_list[i], width=10).pack(pady=10)
