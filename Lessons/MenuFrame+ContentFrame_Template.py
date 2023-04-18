@@ -36,7 +36,7 @@ menu_label.pack(padx=10, pady=10)
 list_menu = ["NEW GAME", "LOAD GAME", "OPTIONS", "CREDITS", "EXIT"]
 i = 0
 for i in range(0, 5):
-    tkb.Button(side_frame, text=list_menu[i], bootstyle="primary-outline", width=25).pack(pady=20, padx=10)
+    tkb.Button(side_frame, text=list_menu[i], bootstyle="primary-outline", width=25).pack(pady=20, padx=10,)
     i += 1
 
 # Change Theme
