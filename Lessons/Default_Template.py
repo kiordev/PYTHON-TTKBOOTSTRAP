@@ -29,8 +29,18 @@ center_frame.columnconfigure(0, weight=1)
 up_center_frame = tkb.Frame(center_frame, bootstyle='primary')
 up_center_frame.grid(row=0, column=0, sticky="nsew")
 
-right_center_frame = tkb.Frame(center_frame, bootstyle='dark')
-right_center_frame.grid(row=1, column=0, sticky="nsew")
+down_center_frame = tkb.Frame(center_frame, bootstyle='secondary')
+down_center_frame.grid(row=1, column=0, sticky="nsew")
+
+my_meter = tkb.Meter(down_center_frame,
+                     subtext='Timer',
+                     bootstyle="secondary",
+                     interactive=True,
+                     stripethickness=6,
+                     textright='sec',
+                     amounttotal=60,
+                     )
+my_meter.pack(pady=10)
 
 # Execute
 window.mainloop()
