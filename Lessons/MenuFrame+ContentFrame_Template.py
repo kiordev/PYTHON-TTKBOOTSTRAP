@@ -41,7 +41,6 @@ for i in range(0, 5):
 
 # Change Theme
 my_theme = window.style.theme_names()
-my_str = tkb.StringVar(value=window.style.theme_use())
 theme_combobox = tkb.Combobox(side_frame, values=my_theme)
 theme_combobox.pack(pady=20, padx=10)
 accept_theme_button = tkb.Button(side_frame, bootstyle='info-outline', text='ACCEPT THEME', command=accept_theme)

@@ -10,20 +10,12 @@ print(my_theme)
 print(my_win.style.colors)
 my_str = ttk.StringVar(value=my_win.style.theme_use())
 
+
+
 r, c = 0, 0
 def my_update():
     my_win.style.theme_use(my_str.get())
     pass
-
-for values in my_theme:
-    rbtn = ttk.Radiobutton(my_win, text=values,
-                           variable=my_str,
-                           value=values,
-                           command=lambda: my_update())
-    rbtn.grid(row=r, column=c, padx=10, pady=20)
-    c += 1
-    if c > 8:
-        r, c = r+1, 0
 
 r, c = r+1, 0
 for my_style in my_win.style.colors:
