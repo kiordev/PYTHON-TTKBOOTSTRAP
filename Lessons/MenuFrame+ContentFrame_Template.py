@@ -3,7 +3,7 @@ import tkinter as t
 from ttkbootstrap import constants
 
 # Settings
-window = tkb.Window(themename='vapor')
+window = tkb.Window()
 window.geometry("800x600")
 window.resizable(False, False)
 
